@@ -1,7 +1,5 @@
 #include <MeggyJrSimple.h>
 
-int px = 0;
-int py = 0;
 struct Point
 {
   int x;
@@ -12,6 +10,9 @@ Point e1 = {7,7};
 Point enemyarray[] = {e1};
 
 
+int px = 0; //player coords
+int py = 0;
+int turn = 0;
 int marker = 1;
 
 void setup() {
@@ -19,14 +20,15 @@ void setup() {
  MeggyJrSimpleSetup(); 
 }
 
-void loop() {
+void loop() 
+{
   // put your main code here, to run repeatedly:
 
-PMovement();
-DrawEnemy();
-DisplaySlate();
-ClearSlate();
+  PMovement();
 
+  DrawEnemy();
+  DisplaySlate();
+  ClearSlate();
 }
 
 void PMovement()
@@ -35,17 +37,23 @@ void PMovement()
   if (Button_Up)
   {
     py++;
+    addEnemy();
   }
   if (Button_Down)
   {
-    py = py - 1;
+    py--;
+    addEnemy();
   }
   if (Button_Right)
   {
     px++;
+    addEnemy();
   }
   if (Button_Left)
-  px = px - 1;
+  {
+    px = px - 1;
+    addEnemy();
+  }
   if (px > 7)
   {
     px = 0;
@@ -67,9 +75,19 @@ void PMovement()
 
 void DrawEnemy()
 {
-  for (int i = 0; i < marker; i++)
+  for (int i = 0; i < 1; i++)
   {
-    DrawPx(enemyarray[i].x, enemyarray[i].y,Red);
+    DrawPx(enemyarray[i].x, enemyarray[i].y, Red);
   }
+}
+
+void addEnemy()
+{
+  // create a new Point enemy
+  Point temp = {random(8),random(8)};
+  // add it to array
+  enemyarray[marker] = temp;
+  // increase marker
+  marker++;
 }
 
