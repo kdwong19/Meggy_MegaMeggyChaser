@@ -1,7 +1,18 @@
 #include <MeggyJrSimple.h>
 
-int px = 0
-int py = 0
+int px = 0;
+int py = 0;
+struct Point
+{
+  int x;
+  int y;
+};
+Point e1 = {7,7};
+
+Point enemyarray[] = {e1};
+
+
+int marker = 1;
 
 void setup() {
   // put your setup code here, to run once:
@@ -11,7 +22,8 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-Pmovement();
+PMovement();
+DrawEnemy();
 DisplaySlate();
 ClearSlate();
 
@@ -49,6 +61,15 @@ void PMovement()
   if (py < 0)
   {
     py = 7;
+  }
+  DrawPx(px,py,7);
+}
+
+void DrawEnemy()
+{
+  for (int i = 0; i < marker; i++)
+  {
+    DrawPx(enemyarray[i].x, enemyarray[i].y,Red);
   }
 }
 
