@@ -7,7 +7,7 @@ struct Point
 };
 Point e1 = {7,7};
 
-Point enemyarray[32] = {e1};
+Point enemyarray[64] = {e1};
 
 
 int px = 0; //player coords
@@ -83,11 +83,39 @@ void DrawEnemy()
 
 void addEnemy()
 {
-  // create a new Point enemy
-  Point temp = {random(8),random(8)};
+  /* create a new Point enemy
+  // creat x variable
+  // create y variable
+
+  while dupecheck(x,y) is true, ]
+  create a new rndom vaolue for each
+  */
+  int x = random(8);
+  int y = random(8);
+  while (dupecheck(x,y) == true)
+  {
+    x = random(8);
+    y = random(8);
+  }
+ 
+  Point temp = {x,y};
   // add it to array
   enemyarray[marker] = temp;
   // increase marker
   marker++;
+}
+
+boolean dupecheck(int x, int y)
+{
+  for (int i = 0; i < marker; i++)
+  {
+    if (enemyarray[i].x == x && enemyarray[i].y == y)
+    {
+      return true;
+    }
+    
+    
+  }
+  return false;
 }
 
