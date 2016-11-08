@@ -14,6 +14,7 @@ int px = 0; //player coords
 int py = 0;
 int turn = 0;
 int marker = 1;
+int counter = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -37,22 +38,42 @@ void PMovement()
   if (Button_Up)
   {
     py++;
-    addEnemy();
+    counter++;
+    if (counter > 2)
+    {
+      addEnemy();
+      counter = 0;
+    }
   }
   if (Button_Down)
   {
     py--;
-    addEnemy();
+    counter++;
+    if (counter > 2)
+    {
+      addEnemy();
+      counter = 0;
+    }
   }
   if (Button_Right)
   {
     px++;
-    addEnemy();
+    counter++;
+    if (counter > 2)
+    {
+      addEnemy();
+      counter = 0;
+    }
   }
   if (Button_Left)
   {
     px = px - 1;
-    addEnemy();
+    counter++;
+    if (counter > 2)
+    {
+      addEnemy();
+      counter = 0;
+    }
   }
   if (px > 7)
   {
