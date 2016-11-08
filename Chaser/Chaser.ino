@@ -7,7 +7,7 @@ struct Point
 };
 Point e1 = {7,7};
 
-Point enemyarray[] = {e1};
+Point enemyarray[32] = {e1};
 
 
 int px = 0; //player coords
@@ -75,7 +75,7 @@ void PMovement()
 
 void DrawEnemy()
 {
-  for (int i = 0; i < 1; i++)
+  for (int i = 0; i < marker; i++)
   {
     DrawPx(enemyarray[i].x, enemyarray[i].y, Red);
   }
