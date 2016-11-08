@@ -140,3 +140,14 @@ boolean dupecheck(int x, int y)
   return false;
 }
 
+void EMovement()
+{
+  for (int = 0; i < marker; i++)
+  {
+    if (enemyarray[i].x > px)
+    {
+      enemyarray[i].x--;
+    }
+  }
+}
+
