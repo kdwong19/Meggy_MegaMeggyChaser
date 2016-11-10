@@ -39,6 +39,7 @@ void PMovement()
   {
     py++;
     counter++;
+    EMovement();
     if (counter > 2)
     {
       addEnemy();
@@ -49,6 +50,7 @@ void PMovement()
   {
     py--;
     counter++;
+    EMovement();
     if (counter > 2)
     {
       addEnemy();
@@ -59,6 +61,7 @@ void PMovement()
   {
     px++;
     counter++;
+    EMovement();
     if (counter > 2)
     {
       addEnemy();
@@ -69,6 +72,7 @@ void PMovement()
   {
     px = px - 1;
     counter++;
+    EMovement();
     if (counter > 2)
     {
       addEnemy();
@@ -142,11 +146,15 @@ boolean dupecheck(int x, int y)
 
 void EMovement()
 {
-  for (int = 0; i < marker; i++)
+  for (int i = 0; i < marker; i++)
   {
     if (enemyarray[i].x > px)
     {
       enemyarray[i].x--;
+    }
+    if (enemyarray[i].x < px)
+    {
+      enemyarray[i].x++;
     }
   }
 }
