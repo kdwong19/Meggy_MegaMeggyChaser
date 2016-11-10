@@ -19,6 +19,7 @@ int counter = 0;
 void setup() {
   // put your setup code here, to run once:
  MeggyJrSimpleSetup(); 
+ Serial.begin(9600);
 }
 
 void loop() 
@@ -157,6 +158,7 @@ void XEMovement()
 
 void YEMovement()
 {
+  Serial.print("function called");
   for (int i = 0; i < marker; i++)
   {
     if (enemyarray[i].y > py)
@@ -169,4 +171,7 @@ void YEMovement()
     }
   }
 }
+
+void FEMovement()
+
 
