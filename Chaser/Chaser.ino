@@ -10,8 +10,8 @@ Point e1 = {7,7};
 Point enemyarray[64] = {e1};
 
 
-int px = 0; //player coords
-int py = 0;
+int px = 4; //player coords
+int py = 4;
 int turn = 0;
 int marker = 1;
 int counter = 0;
@@ -28,13 +28,18 @@ void loop()
 {
   if (gg == false)
   {
-    
-  PMovement();
-
-  DrawEnemy();
-  EPColision();
-  DisplaySlate();
-  ClearSlate();
+   
+  
+   
+   
+   PMovement();
+   DrawEnemy();
+   
+   DisplaySlate();
+   EPColision();
+   ClearSlate();
+   
+   
   }
  else
  {
@@ -175,13 +180,13 @@ void FEMovement()
 {
   for (int i = 0; i < marker; i++)
   {
-    if (abs(px - enemyarray[i].x) >= abs(py - enemyarray[i].y))
+    if (abs(px - enemyarray[i].x) > abs(py - enemyarray[i].y))
     {
       XEMovement();
     }
     else
     {
-      YEMovement();
+     YEMovement();
     }
   }
 }
@@ -217,5 +222,10 @@ void death()
   DrawPx(0,7,Yellow);
   DisplaySlate();
   delay(2000);
+}
+
+void EEcolision()
+{
+  
 }
 
