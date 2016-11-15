@@ -40,6 +40,7 @@ void PMovement()
   {
     py++;
     counter++;
+    FEMovement();
     if (counter > 2)
     {
       addEnemy();
@@ -50,6 +51,7 @@ void PMovement()
   {
     py--;
     counter++;
+    FEMovement();
     if (counter > 2)
     {
       addEnemy();
@@ -60,6 +62,7 @@ void PMovement()
   {
     px++;
     counter++;
+    FEMovement();
     if (counter > 2)
     {
       addEnemy();
@@ -70,6 +73,7 @@ void PMovement()
   {
     px = px - 1;
     counter++;
+    FEMovement();
     if (counter > 2)
     {
       addEnemy();
@@ -173,5 +177,17 @@ void YEMovement()
 }
 
 void FEMovement()
-
+{
+  for (int i = 0; i < marker; i++)
+  {
+    if (abs(px - enemyarray[i].x) >= abs(py - enemyarray[i].y))
+    {
+      XEMovement();
+    }
+    if (abs(px - enemyarray[i].x) < abs(py - enemyarray[i].y))
+    {
+      YEMovement();
+    }
+  }
+}
 
