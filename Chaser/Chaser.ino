@@ -16,6 +16,8 @@ int turn = 0;
 int marker = 1;
 int counter = 0;
 
+boolean gg = false;
+
 void setup() {
   // put your setup code here, to run once:
  MeggyJrSimpleSetup(); 
@@ -24,13 +26,21 @@ void setup() {
 
 void loop() 
 {
-  // put your main code here, to run repeatedly:
-
+  if (gg == false)
+  {
+    
   PMovement();
 
   DrawEnemy();
+  EPColision();
   DisplaySlate();
   ClearSlate();
+  }
+ else
+ {
+  death();
+ }
+ 
 }
 
 void PMovement()
@@ -189,5 +199,38 @@ void FEMovement()
       YEMovement();
     }
   }
+}
+
+void EPColision()
+{
+  for (int i = 0; i < marker; i++)
+  {
+    if (px == enemyarray[i].x && py == enemyarray[i].y)
+    {
+      gg = true;
+    }
+  }
+}
+
+void death()
+{
+  DrawPx(0,0,Yellow);
+  DrawPx(1,1,Yellow);
+  DrawPx(2,2,Yellow);
+  DrawPx(3,3,Yellow);
+  DrawPx(4,4,Yellow);
+  DrawPx(5,5,Yellow);
+  DrawPx(6,6,Yellow);
+  DrawPx(7,7,Yellow);
+  DrawPx(7,0,Yellow);
+  DrawPx(6,1,Yellow);
+  DrawPx(5,2,Yellow);
+  DrawPx(4,3,Yellow);
+  DrawPx(3,4,Yellow);
+  DrawPx(2,5,Yellow);
+  DrawPx(1,6,Yellow);
+  DrawPx(0,7,Yellow);
+  DisplaySlate();
+  delay(2000);
 }
 
