@@ -46,7 +46,7 @@ void loop()
 void PMovement()
 {
   CheckButtonsPress();
-  if (Button_Up)
+  if (Button_Up && py < 7)
   {
     py++;
     counter++;
@@ -57,7 +57,7 @@ void PMovement()
       counter = 0;
     }
   }
-  if (Button_Down)
+  if (Button_Down && py > 0)
   {
     py--;
     counter++;
@@ -68,7 +68,7 @@ void PMovement()
       counter = 0;
     }
   }
-  if (Button_Right)
+  if (Button_Right && px < 7)
   {
     px++;
     counter++;
@@ -79,7 +79,7 @@ void PMovement()
       counter = 0;
     }
   }
-  if (Button_Left)
+  if (Button_Left && px > 0)
   {
     px = px - 1;
     counter++;
@@ -90,22 +90,7 @@ void PMovement()
       counter = 0;
     }
   }
-  if (px > 7)
-  {
-    px = 0;
-  }
-  if (py > 7)
-  {
-    py = 0;
-  }
-  if (px < 0)
-  {
-    px = 7;
-  }
-  if (py < 0)
-  {
-    py = 7;
-  }
+  
   DrawPx(px,py,7);
 }
 
@@ -194,7 +179,7 @@ void FEMovement()
     {
       XEMovement();
     }
-    if (abs(px - enemyarray[i].x) < abs(py - enemyarray[i].y))
+    else
     {
       YEMovement();
     }
