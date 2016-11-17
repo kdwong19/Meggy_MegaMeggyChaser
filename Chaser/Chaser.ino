@@ -4,12 +4,16 @@ struct Point
 {
   int x;
   int y;
+  int wx;
+  int wy;
 };
 Point e1 = {7,7};
 
 Point enemyarray[64] = {e1};
 
+Point wallarray[64];
 
+int wmarker = 0;
 int px = 4; //player coords
 int py = 4;
 int turn = 0;
@@ -25,28 +29,25 @@ void setup() {
 }
 
 void loop() 
-{
-  if (gg == false)
+//{
+  //if (gg == false)
   {
-   
-  
-   
-   
    PMovement();
    DrawEnemy();
    
    DisplaySlate();
    EPColision();
    ClearSlate();
-   
+   //EEcolision();
+   Wallcreate();
    
   }
- else
- {
-  death();
- }
+ //else
+ //{
+  //death();
+ //}
  
-}
+//}
 
 void PMovement()
 {
@@ -180,7 +181,7 @@ void FEMovement()
 {
   for (int i = 0; i < marker; i++)
   {
-    if (abs(px - enemyarray[i].x) > abs(py - enemyarray[i].y))
+    if (abs(px - enemyarray[i].x) >= abs(py - enemyarray[i].y))
     {
       XEMovement();
     }
@@ -226,6 +227,25 @@ void death()
 
 void EEcolision()
 {
-  
+  for (int i = 0; i < marker; i++)
+  {
+    if (enemyarray[i].x == enemyarray[i].x && enemyarray[i].y == enemyarray[i].y)
+    {
+
+     int x = enemyarray[i].x;
+     int y = enemyarray[i].y;
+     Point temp = {x,y};
+     wallarray[wmarker] = temp;
+     wmarker++; 
+    }
+  }
+}
+
+void Wallcreate()
+{
+  for (int i = 0; i < wmarker; i++)
+  {
+    DrawPx(wallarray[i].wx,wallarray[i].wy,2);
+  }
 }
 
