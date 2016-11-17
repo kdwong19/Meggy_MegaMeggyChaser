@@ -229,7 +229,7 @@ void EEcolision()
 {
   for (int i = 0; i < marker; i++)
   {
-    if (enemyarray[i].x == enemyarray[i].x && enemyarray[i].y == enemyarray[i].y)
+    if (dupecheck(xy) == true)
     {
 
      int x = enemyarray[i].x;
