@@ -29,74 +29,97 @@ void setup() {
 }
 
 void loop() 
-//{
-  //if (gg == false)
+{
+  if (gg == false)
   {
    PMovement();
    DrawEnemy();
-   
-   DisplaySlate();
    EPColision();
+   DisplaySlate();
+   
    ClearSlate();
    //EEcolision();
    Wallcreate();
    
   }
- //else
- //{
-  //death();
- //}
+ else
+ {
+  death();
+ }
  
-//}
+}
 
 void PMovement()
 {
   CheckButtonsPress();
-  if (Button_Up && py < 7)
+  if (Button_Up)
   {
     py++;
     counter++;
-    FEMovement();
+    YEMovement();
+    XEMovement();
+    //FEMovement();
     if (counter > 2)
     {
       addEnemy();
       counter = 0;
     }
   }
-  if (Button_Down && py > 0)
+  if (Button_Down)
   {
     py--;
     counter++;
-    FEMovement();
+    YEMovement();
+    XEMovement();
+    //FEMovement();
     if (counter > 2)
     {
       addEnemy();
       counter = 0;
     }
   }
-  if (Button_Right && px < 7)
+  if (Button_Right)
   {
     px++;
     counter++;
-    FEMovement();
+    YEMovement();
+    XEMovement();
+    //FEMovement();
     if (counter > 2)
     {
       addEnemy();
       counter = 0;
     }
   }
-  if (Button_Left && px > 0)
+  if (Button_Left)
   {
     px = px - 1;
     counter++;
-    FEMovement();
+    YEMovement();
+    XEMovement();
+    //FEMovement();
     if (counter > 2)
     {
       addEnemy();
       counter = 0;
     }
   }
-  
+    if (px > 7)
+  {
+    px = 0;
+  }
+  if (py > 7)
+  {
+    py = 0;
+  }
+  if (px < 0)
+  {
+    px = 7;
+  }
+  if (py < 0)
+  {
+    py = 7;
+  }
   DrawPx(px,py,7);
 }
 
@@ -177,7 +200,8 @@ void YEMovement()
   }
 }
 
-void FEMovement()
+void FEMovement() //temp removed this script from the loop because it was
+//making the AI inconsistent
 {
   for (int i = 0; i < marker; i++)
   {
@@ -225,11 +249,11 @@ void death()
   delay(2000);
 }
 
-void EEcolision()
+void EEcolision() //temp removed this script because it causes crashes
 {
   for (int i = 0; i < marker; i++)
   {
-    if (dupecheck(xy) == true)
+    if (dupecheck == true)
     {
 
      int x = enemyarray[i].x;
