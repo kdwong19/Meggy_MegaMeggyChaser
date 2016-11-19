@@ -125,7 +125,14 @@ void DrawEnemy()
 {
   for (int i = 0; i < marker; i++)
   {
-    DrawPx(enemyarray[i].x, enemyarray[i].y, Red);
+    if(enemyarray[i].dead == false)
+    {
+      DrawPx(enemyarray[i].x, enemyarray[i].y, Red);
+    }
+    if(enemyarray[i].dead == true)
+    {
+      DrawPx(enemyarray[i].x, enemyarray[i].y, 14);
+    }
   }
 }
 
@@ -171,14 +178,18 @@ void XEMovement()
 {
   for (int i = 0; i < marker; i++)
   {
-    if (enemyarray[i].x > px)
+    if (enemyarray[i].dead == false)
     {
-      enemyarray[i].x--;
+      if (enemyarray[i].x > px)
+      {
+        enemyarray[i].x--;
+      }
+      if (enemyarray[i].x < px)
+      {
+        enemyarray[i].x++;
+      }
     }
-    if (enemyarray[i].x < px)
-    {
-      enemyarray[i].x++;
-    }
+    
   }
 }
 
@@ -187,14 +198,18 @@ void YEMovement()
   Serial.print("function called");
   for (int i = 0; i < marker; i++)
   {
-    if (enemyarray[i].y > py)
+    if (enemyarray[i].dead == false)
     {
-      enemyarray[i].y--;
+       if (enemyarray[i].y > py)
+      {
+        enemyarray[i].y--;
+      }
+      if (enemyarray[i].y < py)
+      {
+        enemyarray[i].y++;
+      }
     }
-    if (enemyarray[i].y < py)
-    {
-      enemyarray[i].y++;
-    }
+   
   }
 }
 
