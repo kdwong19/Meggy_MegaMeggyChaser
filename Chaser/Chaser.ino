@@ -4,16 +4,15 @@ struct Point
 {
   int x;
   int y;
-  int wx;
-  int wy;
+  boolean dead;
 };
-Point e1 = {7,7};
+Point e1 = {7,7,false};
 
 Point enemyarray[64] = {e1};
 
 Point wallarray[64];
 
-int wmarker = 0;
+
 int px = 4; //player coords
 int py = 4;
 int turn = 0;
@@ -38,9 +37,8 @@ void loop()
    DisplaySlate();
    
    ClearSlate();
-   //EEcolision();
-   Wallcreate();
-   
+   EEcolision();
+ 
   }
  else
  {
@@ -249,27 +247,21 @@ void death()
   delay(2000);
 }
 
-void EEcolision() //temp removed this script because it causes crashes
+void EEcolision() 
 {
   for (int i = 0; i < marker; i++)
   {
-    if (dupecheck == true)
+    for (int k = 0; k < marker; k++)
     {
-
-     int x = enemyarray[i].x;
-     int y = enemyarray[i].y;
-     Point temp = {x,y};
-     wallarray[wmarker] = temp;
-     wmarker++; 
+      if(k != i)
+      {
+        if(enemyarray[i].x == enemyarray[k].x && enemyarray[i].y == enemyarray[k].y)
+        {
+          enemyarray[i].dead = true;
+          enemyarray[k].dead = true;
+        }
+      }
     }
-  }
-}
-
-void Wallcreate()
-{
-  for (int i = 0; i < wmarker; i++)
-  {
-    DrawPx(wallarray[i].wx,wallarray[i].wy,2);
   }
 }
 
