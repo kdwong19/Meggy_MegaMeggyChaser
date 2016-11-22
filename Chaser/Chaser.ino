@@ -188,17 +188,17 @@ boolean dupecheckp(int x, int y)
 
 void XEMovement()
 {
-  for (int i = 0; i < marker; i++)
+  for (int j = 0; j < marker; j++)
   {
-    if (enemyarray[i].dead == false)
+    if (enemyarray[j].dead == false)
     {
-      if (enemyarray[i].x > px)
+      if (enemyarray[j].x > px)
       {
-        enemyarray[i].x--;
+        enemyarray[j].x--;
       }
-      if (enemyarray[i].x < px)
+      if (enemyarray[j].x < px)
       {
-        enemyarray[i].x++;
+        enemyarray[j].x++;
       }
     }
     
@@ -208,17 +208,17 @@ void XEMovement()
 void YEMovement()
 {
   Serial.print("function called");
-  for (int i = 0; i < marker; i++)
+  for (int k = 0; k < marker; k++)
   {
-    if (enemyarray[i].dead == false)
+    if (enemyarray[k].dead == false)
     {
-       if (enemyarray[i].y > py)
+       if (enemyarray[k].y > py)
       {
-        enemyarray[i].y--;
+        enemyarray[k].y--;
       }
-      if (enemyarray[i].y < py)
+      if (enemyarray[k].y < py)
       {
-        enemyarray[i].y++;
+        enemyarray[k].y++;
       }
     }
    
