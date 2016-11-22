@@ -192,11 +192,11 @@ void XEMovement()
   {
     if (enemyarray[j].dead == false)
     {
-      if (enemyarray[j].x > px)
+      if (enemyarray[j].x > px && enemyarray[j].x != 0)
       {
         enemyarray[j].x--;
       }
-      if (enemyarray[j].x < px)
+      if (enemyarray[j].x < px && enemyarray[j].x != 7)
       {
         enemyarray[j].x++;
       }
@@ -212,11 +212,11 @@ void YEMovement()
   {
     if (enemyarray[k].dead == false)
     {
-       if (enemyarray[k].y > py)
+       if (enemyarray[k].y > py && enemyarray[k].y != 0)
       {
         enemyarray[k].y--;
       }
-      if (enemyarray[k].y < py)
+      if (enemyarray[k].y < py && enemyarray[k].x != 7)
       {
         enemyarray[k].y++;
       }
