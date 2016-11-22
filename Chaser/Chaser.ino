@@ -147,7 +147,7 @@ void addEnemy()
   */
   int x = random(8);
   int y = random(8);
-  while (dupecheck(x,y) == true)
+  while (dupecheck(x,y) == true || dupecheckp(x,y) == true)
   {
     x = random(8);
     y = random(8);
@@ -170,6 +170,18 @@ boolean dupecheck(int x, int y)
     }
     
     
+  }
+  return false;
+}
+
+boolean dupecheckp(int x, int y)
+{
+  for (int i = 0; i < marker; i++)
+  {
+    if (px == x && py == y)
+    {
+      return true;
+    }
   }
   return false;
 }
