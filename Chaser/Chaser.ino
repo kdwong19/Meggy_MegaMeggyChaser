@@ -271,14 +271,58 @@ void death()
   DrawPx(1,6,Yellow);
   DrawPx(0,7,Yellow);
   DisplaySlate();
+  
   delay(250);
-  Tone_Start(18182, 250);
+  Tone_Start(ToneG5, 250);
   delay(250);
-  Tone_Start(13182, 250);
+  Tone_Start(ToneE5, 250);
   delay(250);
-  Tone_Start(10182, 250);
+  Tone_Start(ToneD5, 250);
   delay(250);
-  Tone_Start(13182, 250);
+  Tone_Start(ToneC5, 250);
+  delay(250);
+  Tone_Start(ToneD5, 250);
+  delay(250);
+  Tone_Start(ToneE5, 250);
+   
+  delay(250);
+  Tone_Start(ToneG5, 250);
+  delay(250);
+  Tone_Start(ToneE5, 250);
+  delay(250);
+  Tone_Start(ToneD5, 250);
+  delay(250);
+  Tone_Start(ToneC5, 250);
+  delay(250);
+  Tone_Start(ToneD5, 250);
+  delay(250);
+  Tone_Start(ToneE5, 250);
+
+  delay(250);
+  Tone_Start(ToneA5, 250);
+  delay(250);
+  Tone_Start(ToneE5, 250);
+  delay(250);
+  Tone_Start(ToneD5, 250);
+  delay(250);
+  Tone_Start(ToneC5, 250);
+  delay(250);
+  Tone_Start(ToneD5, 250);
+  delay(250);
+  Tone_Start(ToneE5, 250);
+
+  delay(250);
+  Tone_Start(ToneA5, 250);
+  delay(250);
+  Tone_Start(ToneE5, 250);
+  delay(250);
+  Tone_Start(ToneD5, 250);
+  delay(250);
+  Tone_Start(ToneC5, 250);
+  delay(250);
+  Tone_Start(ToneD5, 250);
+  delay(250);
+  Tone_Start(ToneE5, 250);
 }
 
 void EEcolision() 
