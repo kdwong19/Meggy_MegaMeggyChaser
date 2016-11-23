@@ -271,7 +271,14 @@ void death()
   DrawPx(1,6,Yellow);
   DrawPx(0,7,Yellow);
   DisplaySlate();
-  delay(2000);
+  delay(250);
+  Tone_Start(18182, 250);
+  delay(250);
+  Tone_Start(13182, 250);
+  delay(250);
+  Tone_Start(10182, 250);
+  delay(250);
+  Tone_Start(13182, 250);
 }
 
 void EEcolision() 
@@ -286,6 +293,7 @@ void EEcolision()
         {
           enemyarray[i].dead = true;
           enemyarray[k].dead = true;
+          
         }
       }
     }
